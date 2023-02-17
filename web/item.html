@@ -1,0 +1,8 @@
+{{define "item"}}
+<form hx-target="this" hx-sync="this:replace">
+    <input type="hidden" name="id" value="{{.ID}}">
+    <input type="checkbox" name="done" {{if .Checked}}checked{{end}} hx-post="/item/" hx-trigger="click">
+    <input type="text" name="description" value="{{.Description}}" hx-post="/item/" hx-trigger="keyup delay:750ms">
+    <input type="button" hx-post="/delete/item/" hx-params="id" value="X">
+</form>
+{{end}}
